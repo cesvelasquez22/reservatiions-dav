@@ -1,1 +1,41 @@
-<p>reservation-detail works!</p>
+<div class="container">
+    <div fxLayout="column">
+        <div fxLayout="row" fxLayout.xs="column">
+            <div fxLayout="column" fxFlex="50" class="m-36">
+                <mat-card>
+                    <mat-card-title>Información de la reservación</mat-card-title>
+                    <form [formGroup]="reservationForm">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nombre de evento</mat-label>
+                            <input formControlName="eventName" type="text" matInput>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Categoría</mat-label>
+                            <mat-select formControlName="eventCategory">
+                                <mat-option *ngFor="let eventCategory of eventCategories" [value]="eventCategory">{{
+                                    eventCategory.name }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Cliente</mat-label>
+                            <mat-select formControlName="customer">
+                                <mat-option *ngFor="let customer of customers" [value]="customer">{{
+                                    customer.name }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Fecha de reservación</mat-label>
+                            <input matInput [matDatepicker]="reservationDate" disabled>
+                            <mat-datepicker-toggle matSuffix [for]="reservationDate"></mat-datepicker-toggle>
+                            <mat-datepicker #reservationDate disabled="false"></mat-datepicker>
+                        </mat-form-field>
+                        <mat-card-actions fxLayout="row" fxLayoutAlign="end center">
+                            <button mat-stroked-button color="primary" routerLink="..">Cancelar</button>
+                            <button mat-raised-button color="primary" (click)="save()">Guardar</button>
+                        </mat-card-actions>
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
