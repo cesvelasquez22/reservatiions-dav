@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "reservations-dav": {
+      "hosting": {
+        "reservations-dav": [
+          "reservations-dav"
+        ]
+      }
+    }
+  }
+}
